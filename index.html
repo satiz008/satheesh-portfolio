@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Satheesh T | Senior Cloud Engineer & Solutions Architect</title>
+  <title>Satheesh T | Senior Cloud Engineer</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   
   <script src="https://cdn.tailwindcss.com"></script>
@@ -16,15 +16,15 @@
       theme: {
         extend: {
           fontFamily: {
-            sans: ['"Space Grotesk"', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
             mono: ['"JetBrains Mono"', 'monospace']
           },
           colors: {
-            darkest: '#030712',
-            surface: 'rgba(15, 23, 42, 0.65)',
+            appDark: '#070a12',
+            cardBg: '#0e1526',
             accentCyan: '#38bdf8',
-            accentEmerald: '#34d399',
-            accentViolet: '#a78bfa'
+            accentPurple: '#a855f7',
+            accentIndigo: '#6366f1'
           }
         }
       }
@@ -33,280 +33,245 @@
 
   <style>
     body {
-      background-color: #030712;
+      background-color: #070a12;
       background-image: 
-        radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.12) 0px, transparent 40%),
-        radial-gradient(at 100% 20%, rgba(167, 139, 250, 0.1) 0px, transparent 40%),
-        radial-gradient(at 50% 100%, rgba(52, 211, 153, 0.08) 0px, transparent 50%);
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 100% 40%, rgba(168, 85, 247, 0.1) 0%, transparent 40%);
+      background-size: 40px 40px, 40px 40px, 100% 100%, 100% 100%;
     }
-
-    .glass-border-card {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
-      backdrop-filter: blur(24px);
-      border: 1px solid rgba(255, 255, 255, 0.07);
-      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    .glass-panel {
+      background: rgba(14, 21, 38, 0.65);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
     }
-
-    .glass-border-card:hover {
-      border-color: rgba(56, 189, 248, 0.45);
-      transform: translateY(-3px);
-      box-shadow: 0 25px 50px -12px rgba(56, 189, 248, 0.2);
+    .glass-panel:hover {
+      border-color: rgba(56, 189, 248, 0.4);
+      box-shadow: 0 0 25px -5px rgba(56, 189, 248, 0.15);
     }
-
-    .terminal-header {
-      background: rgba(255, 255, 255, 0.03);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    .neon-text {
+      background: linear-gradient(135deg, #ffffff 10%, #93c5fd 60%, #c084fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-
-    .glow-cyan {
-      box-shadow: 0 0 35px -5px rgba(56, 189, 248, 0.35);
+    .chip-glow {
+      box-shadow: 0 0 15px -3px rgba(56, 189, 248, 0.25);
     }
   </style>
 </head>
 
-<body class="text-slate-300 font-sans antialiased selection:bg-accentCyan selection:text-black">
+<body class="text-slate-300 font-sans antialiased selection:bg-accentCyan selection:text-black min-h-screen">
 
-  <!-- Top Ambient Status Bar -->
-  <aside aria-label="System status" class="w-full bg-slate-950/70 border-b border-white/5 py-1.5 px-6 text-[11px] font-mono flex items-center justify-between text-slate-400">
-    <div class="flex items-center gap-2">
-      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-      <span class="text-slate-200">LOCATION: PUNE, INDIA (searce.gcp.node)</span>
-    </div>
-    <div class="hidden sm:flex items-center gap-6">
-      <span>UPTIME: 10+ YRS</span>
-      <span>STATUS: 4x GCP CERTIFIED</span>
-      <span class="text-emerald-400">NETWORK: ZERO-TRUST</span>
-    </div>
-  </aside>
-
-  <!-- Sticky Main Navbar -->
-  <nav class="sticky top-0 z-50 backdrop-blur-2xl bg-darkest/75 border-b border-white/10">
-    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-      <a href="#hero" class="flex items-center gap-3 group">
-        <div class="w-8 h-8 rounded-lg bg-accentCyan/10 border border-accentCyan/30 flex items-center justify-center text-accentCyan group-hover:bg-accentCyan group-hover:text-black transition">
-          <i class="fa-solid fa-cloud-bolt text-sm"></i>
-        </div>
-        <span class="text-white font-bold text-lg tracking-tight font-mono">satheesh<span class="text-accentCyan">.cloud</span></span>
+  <!-- Navbar -->
+  <nav class="sticky top-0 z-50 backdrop-blur-xl bg-appDark/80 border-b border-white/10">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="#hero" class="flex items-center gap-2 text-white font-bold text-lg tracking-tight group">
+        <span class="w-3 h-3 rounded-full bg-accentCyan shadow-[0_0_12px_#38bdf8] group-hover:scale-125 transition-transform duration-300"></span>
+        <span>Satheesh<span class="text-accentCyan font-mono">.cloud</span></span>
       </a>
 
-      <div class="hidden md:flex items-center gap-8 text-xs font-mono tracking-wider uppercase text-slate-400">
-        <a href="#certifications" class="hover:text-accentCyan transition">01.Credentials</a>
-        <a href="#skills" class="hover:text-accentCyan transition">02.Capabilities</a>
-        <a href="#projects" class="hover:text-accentCyan transition">03.Architecture</a>
-        <a href="#experience" class="hover:text-accentCyan transition">04.Chronology</a>
+      <div class="hidden md:flex items-center gap-8 text-xs font-semibold uppercase tracking-wider text-slate-400">
+        <a href="#certifications" class="hover:text-accentCyan transition">Certifications</a>
+        <a href="#skills" class="hover:text-accentCyan transition">Stack</a>
+        <a href="#projects" class="hover:text-accentCyan transition">Architecture</a>
+        <a href="#experience" class="hover:text-accentCyan transition">Experience</a>
       </div>
 
-      <a href="mailto:satheeshthangathurai@gmail.com" class="px-5 py-2.5 rounded-full bg-white/5 hover:bg-accentCyan hover:text-black text-white text-xs font-mono font-semibold border border-white/15 transition-all">
-        ./contact.cloud
+      <a href="mailto:satheeshthangathurai@gmail.com" class="text-xs font-bold px-5 py-2.5 rounded-full bg-gradient-to-r from-accentCyan to-accentIndigo text-white shadow-lg shadow-sky-500/20 hover:brightness-110 transition">
+        Get In Touch
       </a>
     </div>
   </nav>
 
-  <main class="max-w-7xl mx-auto px-6 pt-12 pb-28 space-y-36">
+  <main class="max-w-6xl mx-auto px-6 pt-16 pb-24 space-y-32">
 
-    <!-- Hero / Terminal Section -->
-    <section id="hero" class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center pt-6">
-      <div class="lg:col-span-7 space-y-7 text-center lg:text-left">
+    <!-- Hero Section -->
+    <section id="hero" class="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-20 pt-8">
+      <div class="flex-1 text-center lg:text-left space-y-6">
         
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-accentCyan">
-          <i class="fa-solid fa-shield-check"></i>
-          <span>Production Infrastructure & DevOps Lead</span>
+        <!-- Status Pill -->
+        <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass-panel border border-white/10 text-xs font-medium text-slate-300">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>Open to Cloud Architecture & Enterprise Consulting</span>
         </div>
 
-        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-none">
-          SATHEESH T
+        <!-- Main Heading -->
+        <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight">
+          Hi, I'm <span class="bg-gradient-to-r from-sky-400 via-sky-300 to-indigo-400 bg-clip-text text-transparent">Satheesh T</span>
         </h1>
 
-        <div class="text-lg sm:text-xl font-mono text-accentCyan">
-          &gt; Senior Cloud Engineer_
-        </div>
-
-        <p class="text-sm sm:text-base text-slate-400 max-w-xl leading-relaxed mx-auto lg:mx-0 font-normal">
-          Results-driven Senior Cloud Engineer and 4x GCP Certified professional specializing in end-to-end design, implementation, and maintenance of scalable GCP infrastructure. Skilled in modular Terraform IaC, automated GitOps delivery, and Zero-Trust cloud network security.
+        <!-- Subheading -->
+        <p class="text-xl sm:text-2xl text-slate-200 font-semibold">
+          Senior Cloud Engineer & 4x GCP Certified Architect
         </p>
 
-        <!-- CTA Action Array -->
-        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2 font-mono text-xs">
-          <a href="#projects" class="px-6 py-3.5 rounded-xl bg-accentCyan text-black font-bold tracking-wider hover:brightness-110 glow-cyan transition">
-            VIEW_ARCHITECTURE()
+        <!-- Description -->
+        <p class="text-sm sm:text-base text-slate-400 max-w-xl leading-relaxed mx-auto lg:mx-0">
+          Specializing in the end-to-end design, implementation, and maintenance of enterprise GCP infrastructure. Driven by Terraform IaC, secure multi-tenant landing zones, Zero-Trust networking, and resilient container platforms.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+          <a href="#projects" class="px-6 py-3 rounded-xl bg-[#38bdf8] text-slate-950 font-bold text-sm hover:brightness-110 shadow-[0_0_20px_rgba(56,189,248,0.35)] transition duration-200">
+            View Architecture Projects
           </a>
-          <a href="https://linkedin.com/in/satheesh-thangathurai" target="_blank" class="px-6 py-3.5 rounded-xl bg-white/5 hover:bg-white/10 text-white border border-white/10 flex items-center gap-2 transition">
-            <i class="fa-brands fa-linkedin text-accentCyan"></i>
-            <span>LINKEDIN_PROFILE</span>
+          <a href="https://linkedin.com/in/satheesh-thangathurai" target="_blank" class="px-6 py-3 rounded-xl glass-panel border border-white/15 text-white font-medium text-sm flex items-center gap-2.5 hover:bg-slate-800/80 transition duration-200">
+            <i class="fa-brands fa-linkedin text-sky-400"></i>
+            <span>satheesh-thangathurai</span>
           </a>
         </div>
 
-        <!-- Telemetry Metrics Bar -->
-        <div class="pt-6 grid grid-cols-3 gap-4 border-t border-white/10 max-w-lg mx-auto lg:mx-0 text-left font-mono">
+        <!-- Metric Counters -->
+        <div class="pt-6 grid grid-cols-3 gap-6 border-t border-white/10 max-w-md mx-auto lg:mx-0 text-left">
           <div>
-            <div class="text-2xl sm:text-3xl font-bold text-white tracking-tight">4x</div>
-            <div class="text-[11px] text-slate-400 mt-1">GCP Certified</div>
+            <div class="text-3xl font-extrabold text-white font-mono">4x</div>
+            <div class="text-xs font-mono text-accentCyan uppercase mt-1">GCP Certified</div>
           </div>
           <div>
-            <div class="text-2xl sm:text-3xl font-bold text-white tracking-tight">10+</div>
-            <div class="text-[11px] text-slate-400 mt-1">Years Experience</div>
+            <div class="text-3xl font-extrabold text-white font-mono">10+</div>
+            <div class="text-xs font-mono text-accentCyan uppercase mt-1">Years IT Exp</div>
           </div>
           <div>
-            <div class="text-2xl sm:text-3xl font-bold text-white tracking-tight">0-Downtime</div>
-            <div class="text-[11px] text-slate-400 mt-1">M2VM Migrations</div>
+            <div class="text-3xl font-extrabold text-white font-mono">0%</div>
+            <div class="text-xs font-mono text-accentCyan uppercase mt-1">Key Leaks (WIF)</div>
           </div>
         </div>
       </div>
 
-      <!-- Hero Visual Terminal Window -->
-      <div class="lg:col-span-5 flex justify-center">
-        <div class="w-full max-w-md rounded-2xl glass-border-card overflow-hidden">
-          <div class="terminal-header px-4 py-3 flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="w-3 h-3 rounded-full bg-rose-500/80"></span>
-              <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
-              <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
+      <!-- Hero Visual Identity Card -->
+      <div class="relative w-full max-w-xs sm:max-w-sm flex justify-center">
+        <div class="relative w-64 h-80 sm:w-72 sm:h-96 rounded-3xl p-3 glass-panel group">
+          <div class="w-full h-full rounded-2xl overflow-hidden relative bg-slate-900 border border-white/10">
+            <img src="profile.png" alt="Satheesh T" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-appDark via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <div class="text-base font-bold text-white">Satheesh T</div>
+              <div class="text-xs text-sky-400 font-mono">Senior Cloud Engineer @ Searce</div>
             </div>
-            <span class="text-[11px] font-mono text-slate-500">engineer_identity.json</span>
           </div>
-
-          <div class="p-6 space-y-5 font-mono text-xs">
-            <div class="relative w-44 h-44 mx-auto rounded-xl overflow-hidden border border-white/15 shadow-2xl">
-              <img src="profile.png" alt="Satheesh T" class="w-full h-full object-cover">
-            </div>
-
-            <div class="space-y-1.5 text-slate-400 bg-darkest/60 p-4 rounded-xl border border-white/5">
-              <p><span class="text-accentCyan">"name":</span> <span class="text-white">"Satheesh T"</span>,</p>
-              <p><span class="text-accentCyan">"current_role":</span> <span class="text-emerald-400">"Senior Cloud Engineer"</span>,</p>
-              <p><span class="text-accentCyan">"company":</span> <span class="text-white">"Searce Inc"</span>,</p>
-              <p><span class="text-accentCyan">"headquarters":</span> <span class="text-white">"Pune, India"</span>,</p>
-              <p><span class="text-accentCyan">"core_focus":</span> <span class="text-accentViolet">["GCP", "IaC", "K8s", "Security"]</span></p>
-            </div>
+          
+          <div class="absolute -bottom-4 -left-4 px-4 py-2 glass-panel rounded-xl text-xs font-mono text-white flex items-center gap-2 border border-white/15">
+            <span class="w-2 h-2 rounded-full bg-sky-400"></span>
+            <span>Pune, India</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Certifications Credentials Bento -->
+    <!-- Certifications Badges -->
     <section id="certifications" class="space-y-8">
-      <div class="flex items-end justify-between">
-        <div>
-          <span class="text-xs font-mono text-accentCyan uppercase tracking-widest">// Credentials</span>
-          <h2 class="text-3xl font-bold text-white mt-1">Google Cloud Certifications</h2>
-        </div>
+      <div>
+        <span class="text-xs uppercase tracking-widest text-accentCyan font-mono font-bold">Validated Expertise</span>
+        <h2 class="text-3xl font-extrabold text-white mt-1">Google Cloud Certifications</h2>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        <div class="glass-border-card p-6 rounded-2xl relative group">
-          <div class="w-12 h-12 rounded-xl bg-accentCyan/10 border border-accentCyan/20 text-accentCyan flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">
+        <div class="glass-panel p-6 rounded-2xl relative overflow-hidden group">
+          <div class="w-12 h-12 rounded-xl bg-accentCyan/10 border border-accentCyan/20 flex items-center justify-center text-accentCyan text-xl mb-4 group-hover:scale-110 transition">
             <i class="fa-solid fa-cloud"></i>
           </div>
-          <span class="text-[10px] font-mono text-accentCyan uppercase">Professional</span>
-          <h3 class="text-base font-bold text-white mt-1">Cloud Architect</h3>
-          <p class="text-xs text-slate-400 mt-2">Enterprise landing zones, multi-tenant foundations, and high-availability systems.</p>
+          <h3 class="text-base font-bold text-white">Professional Cloud Architect</h3>
+          <p class="text-xs text-slate-400 mt-2">Enterprise Landing Zones & Cloud Solution Design</p>
         </div>
 
-        <div class="glass-border-card p-6 rounded-2xl relative group">
-          <div class="w-12 h-12 rounded-xl bg-emerald-400/10 border border-emerald-400/20 text-emerald-400 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">
+        <div class="glass-panel p-6 rounded-2xl relative overflow-hidden group">
+          <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 text-xl mb-4 group-hover:scale-110 transition">
             <i class="fa-solid fa-shield-halved"></i>
           </div>
-          <span class="text-[10px] font-mono text-emerald-400 uppercase">Professional</span>
-          <h3 class="text-base font-bold text-white mt-1">Cloud Security Engineer</h3>
-          <p class="text-xs text-slate-400 mt-2">VPC-SC perimeter defense, keyless WIF, and Cloud Armor advanced rules.</p>
+          <h3 class="text-base font-bold text-white">Professional Cloud Security Engineer</h3>
+          <p class="text-xs text-slate-400 mt-2">VPC-SC, WAF Rules, WIF & Zero-Trust IAM</p>
         </div>
 
-        <div class="glass-border-card p-6 rounded-2xl relative group">
-          <div class="w-12 h-12 rounded-xl bg-accentViolet/10 border border-accentViolet/20 text-accentViolet flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">
+        <div class="glass-panel p-6 rounded-2xl relative overflow-hidden group">
+          <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 text-xl mb-4 group-hover:scale-110 transition">
             <i class="fa-solid fa-network-wired"></i>
           </div>
-          <span class="text-[10px] font-mono text-accentViolet uppercase">Professional</span>
-          <h3 class="text-base font-bold text-white mt-1">Cloud Network Engineer</h3>
-          <p class="text-xs text-slate-400 mt-2">Network Connectivity Center (NCC), HA VPN, Shared VPCs, and Cloud NAT.</p>
+          <h3 class="text-base font-bold text-white">Professional Cloud Network Engineer</h3>
+          <p class="text-xs text-slate-400 mt-2">Shared VPC, NCC, Cloud Routers & HA VPN</p>
         </div>
 
-        <div class="glass-border-card p-6 rounded-2xl relative group">
-          <div class="w-12 h-12 rounded-xl bg-amber-400/10 border border-amber-400/20 text-amber-400 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">
-            <i class="fa-solid fa-certificate"></i>
+        <div class="glass-panel p-6 rounded-2xl relative overflow-hidden group">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 text-xl mb-4 group-hover:scale-110 transition">
+            <i class="fa-solid fa-award"></i>
           </div>
-          <span class="text-[10px] font-mono text-amber-400 uppercase">Associate</span>
-          <h3 class="text-base font-bold text-white mt-1">Cloud Engineer</h3>
-          <p class="text-xs text-slate-400 mt-2">GCP workload orchestration, compute engines, IAM roles, and storage services.</p>
+          <h3 class="text-base font-bold text-white">Associate Cloud Engineer</h3>
+          <p class="text-xs text-slate-400 mt-2">Core Compute, Storage & Managed Services</p>
         </div>
       </div>
     </section>
 
-    <!-- Technical Stack Bento Grid -->
+    <!-- Technical Stack Matrix -->
     <section id="skills" class="space-y-8">
       <div>
-        <span class="text-xs font-mono text-accentCyan uppercase tracking-widest">// Capabilities</span>
-        <h2 class="text-3xl font-bold text-white mt-1">Core Technical Ecosystem</h2>
+        <span class="text-xs uppercase tracking-widest text-accentCyan font-mono font-bold">Capabilities</span>
+        <h2 class="text-3xl font-extrabold text-white mt-1">Production Skills & Core Stack</h2>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        
-        <div class="glass-border-card p-7 rounded-2xl space-y-4">
-          <div class="flex items-center gap-3">
-            <span class="w-8 h-8 rounded-lg bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-accentCyan text-sm font-mono">&lt;/&gt;</span>
-            <h3 class="text-lg font-bold text-white">IaC & Orchestration</h3>
+        <div class="glass-panel p-6 rounded-2xl space-y-4">
+          <h3 class="text-lg font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-code text-accentCyan"></i> IaC & Kubernetes
+          </h3>
+          <div class="flex flex-wrap gap-2 text-xs">
+            <span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-slate-200 font-mono">Terraform</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-slate-200 font-mono">GKE</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-slate-200 font-mono">Cloud Run</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-slate-200 font-mono">Helm</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-slate-200 font-mono">Docker</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-slate-200 font-mono">Atlantis</span>
           </div>
           <p class="text-xs text-slate-400 leading-relaxed">
-            Multi-tenant organizational Landing Zones, PR-driven GitOps, and scalable microservices.
+            Multi-tenant organizational Landing Zones, PR-driven GitOps workflows, and production GKE container workloads.
           </p>
-          <div class="flex flex-wrap gap-2 text-xs font-mono pt-2">
-            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-200">Terraform</span>
-            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-200">GKE</span>
-            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-200">Cloud Run</span>
-            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-200">Helm</span>
-            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-200">Atlantis</span>
-            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-200">Docker</span>
-          </div>
         </div>
 
-        <div class="glass-border-card p-7 rounded-2xl space-y-4">
-          <div class="flex items-center gap-3">
-            <span class="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 text-sm font-mono"><i class="fa-solid fa-lock"></i></span>
-            <h3 class="text-lg font-bold text-white">Security & Zero-Trust</h3>
+        <div class="glass-panel p-6 rounded-2xl space-y-4">
+          <h3 class="text-lg font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-lock text-purple-400"></i> Zero-Trust & Defense
+          </h3>
+          <div class="flex flex-wrap gap-2 text-xs">
+            <span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-slate-200 font-mono">VPC-SC</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-slate-200 font-mono">Cloud Armor WAF</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-slate-200 font-mono">WIF (Keyless)</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-slate-200 font-mono">Shared VPC</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-slate-200 font-mono">Microsoft Entra ID</span>
           </div>
           <p class="text-xs text-slate-400 leading-relaxed">
-            Elimination of long-lived credentials, data exfiltration perimeters, and ingress defense.
+            Zero-Trust access control, service perimeters to eliminate data exfiltration, and global load balancer WAF filtering.
           </p>
-          <div class="flex flex-wrap gap-2 text-xs font-mono pt-2">
-            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-200">VPC-SC</span>
-            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-200">Cloud Armor WAF</span>
-            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-200">WIF (Keyless)</span>
-            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-200">Entra ID SSO</span>
-            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-200">Shared VPC</span>
-            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-200">IAM Governance</span>
-          </div>
         </div>
 
-        <div class="glass-border-card p-7 rounded-2xl space-y-4">
-          <div class="flex items-center gap-3">
-            <span class="w-8 h-8 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-accentViolet text-sm font-mono"><i class="fa-solid fa-terminal"></i></span>
-            <h3 class="text-lg font-bold text-white">Pipelines & Observability</h3>
+        <div class="glass-panel p-6 rounded-2xl space-y-4">
+          <h3 class="text-lg font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-bolt text-indigo-400"></i> CI/CD & Operations
+          </h3>
+          <div class="flex flex-wrap gap-2 text-xs">
+            <span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-slate-200 font-mono">GitLab CI</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-slate-200 font-mono">Bitbucket</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-slate-200 font-mono">Prometheus</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-slate-200 font-mono">Grafana</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-slate-200 font-mono">Python / Bash</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-slate-200 font-mono">Marketplace ISV</span>
           </div>
           <p class="text-xs text-slate-400 leading-relaxed">
-            Continuous deployment workflows, metric alerts, and ISV marketplace commercialization.
+            End-to-end automated pipelines, observability dashboards, alerting policies, and Google Marketplace product onboarding.
           </p>
-          <div class="flex flex-wrap gap-2 text-xs font-mono pt-2">
-            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-200">GitLab CI</span>
-            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-200">Bitbucket Pipelines</span>
-            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-200">Prometheus</span>
-            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-200">Grafana</span>
-            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-200">Python / Shell</span>
-            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-200">GCP Marketplace</span>
-          </div>
         </div>
-
       </div>
     </section>
 
-    <!-- Architecture Delivery Portfolio -->
+    <!-- Architecture Portfolio Projects -->
     <section id="projects" class="space-y-8">
       <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <div>
-          <span class="text-xs font-mono text-accentCyan uppercase tracking-widest">// Track Record</span>
-          <h2 class="text-3xl font-bold text-white mt-1">Enterprise Architecture Portfolio</h2>
+          <span class="text-xs uppercase tracking-widest text-accentCyan font-mono font-bold">Track Record</span>
+          <h2 class="text-3xl font-extrabold text-white mt-1">Enterprise Architecture Portfolio</h2>
         </div>
 
-        <!-- Filter Array -->
-        <div class="flex flex-wrap gap-2 p-1.5 rounded-xl glass-border-card text-xs font-mono">
+        <!-- Filter Controls -->
+        <div class="flex flex-wrap gap-2 p-1.5 rounded-xl glass-panel text-xs font-mono">
           <button onclick="filterProjects('all')" class="filter-btn px-3 py-1.5 rounded-lg bg-accentCyan text-black font-bold" data-filter="all">All</button>
           <button onclick="filterProjects('iac')" class="filter-btn px-3 py-1.5 rounded-lg text-slate-400 hover:text-white" data-filter="iac">IaC & GitOps</button>
           <button onclick="filterProjects('security')" class="filter-btn px-3 py-1.5 rounded-lg text-slate-400 hover:text-white" data-filter="security">Security</button>
@@ -315,33 +280,32 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
+        
         <!-- Project 1 -->
-        <div class="project-card glass-border-card p-7 rounded-2xl flex flex-col justify-between" data-category="iac">
+        <div class="project-card glass-panel p-7 rounded-2xl flex flex-col justify-between" data-category="iac">
           <div class="space-y-3">
             <div class="flex items-center justify-between text-xs font-mono text-accentCyan">
-              <span>FOUNDATION ARCHITECTURE</span>
-              <span>TERRAFORM / GKE</span>
+              <span>IaC & Platform</span>
+              <span>Terraform / GKE</span>
             </div>
-            <h3 class="text-lg font-bold text-white">Enterprise GCP Landing Zone & Atlantis GitOps</h3>
+            <h3 class="text-lg font-bold text-white">Enterprise GCP Landing Zone & Atlantis CI/CD</h3>
             <p class="text-sm text-slate-400 leading-relaxed">
-              Architected and deployed multi-tenant GCP Landing Zones using modular Terraform. Automated infrastructure changes by hosting Atlantis on GKE via Helm, enforcing pull-request-driven workflows with governance reviews.
+              Architected multi-tenant GCP Landing Zones using modular Terraform. Automated deployment pipelines by running Atlantis on GKE via Helm to establish pull-request-driven workflows with governance reviews.
             </p>
           </div>
           <div class="pt-6 flex flex-wrap gap-2 text-xs font-mono">
             <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">Terraform</span>
             <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">Atlantis</span>
             <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">GKE</span>
-            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">Helm</span>
           </div>
         </div>
 
         <!-- Project 2 -->
-        <div class="project-card glass-border-card p-7 rounded-2xl flex flex-col justify-between" data-category="security">
+        <div class="project-card glass-panel p-7 rounded-2xl flex flex-col justify-between" data-category="security">
           <div class="space-y-3">
-            <div class="flex items-center justify-between text-xs font-mono text-emerald-400">
-              <span>ZERO-TRUST DEFENSE</span>
-              <span>WIF / VPC-SC</span>
+            <div class="flex items-center justify-between text-xs font-mono text-purple-400">
+              <span>Zero-Trust</span>
+              <span>Security Perimeter</span>
             </div>
             <h3 class="text-lg font-bold text-white">Workload Identity Federation & VPC-SC Defense</h3>
             <p class="text-sm text-slate-400 leading-relaxed">
@@ -351,16 +315,16 @@
           <div class="pt-6 flex flex-wrap gap-2 text-xs font-mono">
             <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">WIF</span>
             <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">VPC-SC</span>
-            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">IAM Governance</span>
+            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">IAM Least Privilege</span>
           </div>
         </div>
 
         <!-- Project 3 -->
-        <div class="project-card glass-border-card p-7 rounded-2xl flex flex-col justify-between" data-category="migration">
+        <div class="project-card glass-panel p-7 rounded-2xl flex flex-col justify-between" data-category="migration">
           <div class="space-y-3">
-            <div class="flex items-center justify-between text-xs font-mono text-accentViolet">
-              <span>ENTERPRISE AI & SSO</span>
-              <span>GEMINI ENTERPRISE</span>
+            <div class="flex items-center justify-between text-xs font-mono text-indigo-400">
+              <span>Enterprise AI</span>
+              <span>SSO & Data Federation</span>
             </div>
             <h3 class="text-lg font-bold text-white">Gemini Enterprise Integration & Entra ID SSO</h3>
             <p class="text-sm text-slate-400 leading-relaxed">
@@ -375,15 +339,15 @@
         </div>
 
         <!-- Project 4 -->
-        <div class="project-card glass-border-card p-7 rounded-2xl flex flex-col justify-between" data-category="security">
+        <div class="project-card glass-panel p-7 rounded-2xl flex flex-col justify-between" data-category="security">
           <div class="space-y-3">
             <div class="flex items-center justify-between text-xs font-mono text-accentCyan">
-              <span>HYBRID CONNECTIVITY</span>
-              <span>WAF & HUB-SPOKE</span>
+              <span>Advanced Networking</span>
+              <span>Ingress Security</span>
             </div>
             <h3 class="text-lg font-bold text-white">Hub-and-Spoke Shared VPC & Cloud Armor WAF</h3>
             <p class="text-sm text-slate-400 leading-relaxed">
-              Engineered enterprise Hub-and-Spoke networking using Shared VPCs, Cloud Routers, and Cloud NAT. Protected ingress endpoints using Cloud Armor Advanced WAF rules with geo-restrictions and rate limits on Global Load Balancers.
+              Engineered Hub-and-Spoke networking leveraging Shared VPCs, Cloud Routers, and Cloud NAT. Secured public workloads via Global External HTTPS Load Balancers paired with Cloud Armor Advanced WAF rules.
             </p>
           </div>
           <div class="pt-6 flex flex-wrap gap-2 text-xs font-mono">
@@ -394,10 +358,10 @@
         </div>
 
         <!-- Project 5 -->
-        <div class="project-card glass-border-card p-7 rounded-2xl flex flex-col justify-between" data-category="migration">
+        <div class="project-card glass-panel p-7 rounded-2xl flex flex-col justify-between" data-category="migration">
           <div class="space-y-3">
             <div class="flex items-center justify-between text-xs font-mono text-amber-400">
-              <span>CROSS-CLOUD PIPELINES</span>
+              <span>Migration</span>
               <span>M2VM & STS</span>
             </div>
             <h3 class="text-lg font-bold text-white">M2VM Workload Lift & Cross-Cloud S3 Data Pipes</h3>
@@ -413,11 +377,11 @@
         </div>
 
         <!-- Project 6 -->
-        <div class="project-card glass-border-card p-7 rounded-2xl flex flex-col justify-between" data-category="iac">
+        <div class="project-card glass-panel p-7 rounded-2xl flex flex-col justify-between" data-category="iac">
           <div class="space-y-3">
             <div class="flex items-center justify-between text-xs font-mono text-emerald-400">
-              <span>CLOUD COMMERCE</span>
-              <span>GCP MARKETPLACE</span>
+              <span>Marketplace</span>
+              <span>ISV Integration</span>
             </div>
             <h3 class="text-lg font-bold text-white">Google Cloud Marketplace ISV Integration</h3>
             <p class="text-sm text-slate-400 leading-relaxed">
@@ -426,7 +390,7 @@
           </div>
           <div class="pt-6 flex flex-wrap gap-2 text-xs font-mono">
             <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">GCP Marketplace</span>
-            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">ISV Onboarding</span>
+            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">ISV Deployment</span>
             <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">Billing APIs</span>
           </div>
         </div>
@@ -434,32 +398,32 @@
       </div>
     </section>
 
-    <!-- Career Chronology -->
+    <!-- Career Timeline -->
     <section id="experience" class="space-y-8">
       <div>
-        <span class="text-xs font-mono text-accentCyan uppercase tracking-widest">// Career</span>
-        <h2 class="text-3xl font-bold text-white mt-1">Employment Chronology</h2>
+        <span class="text-xs uppercase tracking-widest text-accentCyan font-mono font-bold">Career</span>
+        <h2 class="text-3xl font-extrabold text-white mt-1">Employment Chronology</h2>
       </div>
 
-      <div class="space-y-6 relative before:absolute before:inset-0 before:left-3.5 before:w-0.5 before:bg-white/10">
+      <div class="space-y-6 relative before:absolute before:inset-0 before:left-3 before:w-0.5 before:bg-white/10">
         
-        <div class="relative pl-9">
-          <div class="absolute left-2 top-2.5 w-3.5 h-3.5 rounded-full bg-accentCyan ring-4 ring-darkest"></div>
-          <div class="glass-border-card p-6 rounded-2xl space-y-2">
+        <div class="relative pl-8">
+          <div class="absolute left-1.5 top-2 w-3.5 h-3.5 rounded-full bg-accentCyan ring-4 ring-appDark"></div>
+          <div class="glass-panel p-6 rounded-2xl space-y-2">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs text-slate-400 font-mono">
               <span class="text-accentCyan font-bold">SEARCE INC</span>
               <span>Sep 2022 – Present | Pune, India</span>
             </div>
             <h3 class="text-base font-bold text-white">Senior Cloud Engineer</h3>
             <p class="text-sm text-slate-400 leading-relaxed">
-              Leading enterprise GCP Landing Zone builds, automated infrastructure CI/CD via Atlantis and Terraform, VPC-SC security controls, and hybrid interconnects.
+              Leading GCP Landing Zone architectures, automated infrastructure CI/CD via Atlantis and Terraform, VPC security controls, and enterprise hybrid cloud deployments.
             </p>
           </div>
         </div>
 
-        <div class="relative pl-9">
-          <div class="absolute left-2 top-2.5 w-3.5 h-3.5 rounded-full bg-slate-600 ring-4 ring-darkest"></div>
-          <div class="glass-border-card p-6 rounded-2xl space-y-2">
+        <div class="relative pl-8">
+          <div class="absolute left-1.5 top-2 w-3.5 h-3.5 rounded-full bg-slate-600 ring-4 ring-appDark"></div>
+          <div class="glass-panel p-6 rounded-2xl space-y-2">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs text-slate-400 font-mono">
               <span class="text-slate-300 font-bold">MIRAFRA TECHNOLOGIES</span>
               <span>Jan 2022 – May 2022 | Bangalore, India</span>
@@ -471,23 +435,23 @@
           </div>
         </div>
 
-        <div class="relative pl-9">
-          <div class="absolute left-2 top-2.5 w-3.5 h-3.5 rounded-full bg-slate-600 ring-4 ring-darkest"></div>
-          <div class="glass-border-card p-6 rounded-2xl space-y-2">
+        <div class="relative pl-8">
+          <div class="absolute left-1.5 top-2 w-3.5 h-3.5 rounded-full bg-slate-600 ring-4 ring-appDark"></div>
+          <div class="glass-panel p-6 rounded-2xl space-y-2">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs text-slate-400 font-mono">
               <span class="text-slate-300 font-bold">SATVAT INFOSOL PVT LTD</span>
               <span>May 2019 – Nov 2021 | Chennai, India</span>
             </div>
             <h3 class="text-base font-bold text-white">Technical Support Engineer</h3>
             <p class="text-sm text-slate-400 leading-relaxed">
-              Maintained high system availability and rapid troubleshooting across distributed networks and enterprise server systems.
+              Maintained high system availability and troubleshooting across distributed networks and enterprise server systems.
             </p>
           </div>
         </div>
 
-        <div class="relative pl-9">
-          <div class="absolute left-2 top-2.5 w-3.5 h-3.5 rounded-full bg-slate-600 ring-4 ring-darkest"></div>
-          <div class="glass-border-card p-6 rounded-2xl space-y-2">
+        <div class="relative pl-8">
+          <div class="absolute left-1.5 top-2 w-3.5 h-3.5 rounded-full bg-slate-600 ring-4 ring-appDark"></div>
+          <div class="glass-panel p-6 rounded-2xl space-y-2">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs text-slate-400 font-mono">
               <span class="text-slate-300 font-bold">ATLANTIUS TECHNOLOGIES</span>
               <span>Aug 2015 – Mar 2019 | Chennai, India</span>
@@ -505,49 +469,49 @@
     <!-- Education Section -->
     <section class="space-y-6">
       <div>
-        <span class="text-xs font-mono text-accentCyan uppercase tracking-widest">// Academics</span>
-        <h2 class="text-3xl font-bold text-white mt-1">Academic Background</h2>
+        <span class="text-xs uppercase tracking-widest text-accentCyan font-mono font-bold">Academics</span>
+        <h2 class="text-3xl font-extrabold text-white mt-1">Academic Chronology</h2>
       </div>
-      <div class="glass-border-card p-6 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="glass-panel p-6 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <h3 class="text-base font-bold text-white">Bachelor of Engineering (BE) — Electronics & Communication</h3>
           <p class="text-xs text-slate-400 mt-1">Anna University, Chennai, India</p>
         </div>
-        <div class="text-xs font-mono px-3.5 py-1.5 rounded-lg bg-white/5 border border-white/10 text-accentCyan w-fit">
+        <div class="text-xs font-mono px-3.5 py-1.5 rounded-lg bg-white/5 border border-white/10 text-sky-400 w-fit">
           Class of 2014
         </div>
       </div>
     </section>
 
-    <!-- Contact Terminal Footer -->
-    <footer class="glass-border-card rounded-3xl p-8 sm:p-12 text-center space-y-6 border border-white/10">
+    <!-- Contact Footer -->
+    <footer class="glass-panel rounded-3xl p-8 sm:p-12 text-center space-y-6 border border-white/10">
       <div class="w-12 h-12 rounded-2xl bg-accentCyan/10 border border-accentCyan/30 text-accentCyan flex items-center justify-center mx-auto text-xl">
-        <i class="fa-solid fa-code-merge"></i>
+        <i class="fa-solid fa-terminal"></i>
       </div>
       <div class="space-y-2">
-        <h2 class="text-3xl font-extrabold text-white tracking-tight">Let's Connect</h2>
+        <h2 class="text-3xl font-extrabold text-white">Let's Connect</h2>
         <p class="text-sm text-slate-400 max-w-md mx-auto">
           Available for conversations regarding cloud infrastructure, enterprise landing zones, and contract architecture roles.
         </p>
       </div>
 
-      <div class="flex flex-wrap items-center justify-center gap-4 pt-2 font-mono text-xs">
-        <a href="mailto:satheeshthangathurai@gmail.com" class="px-5 py-3 rounded-xl bg-accentCyan text-black font-bold flex items-center gap-2 hover:brightness-110 transition">
+      <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
+        <a href="mailto:satheeshthangathurai@gmail.com" class="px-5 py-3 rounded-xl bg-accentCyan text-black font-bold text-xs flex items-center gap-2 hover:brightness-110 transition">
           <i class="fa-solid fa-envelope"></i>
           <span>satheeshthangathurai@gmail.com</span>
         </a>
-        <a href="tel:+919962268886" class="px-5 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-medium flex items-center gap-2 hover:bg-white/10 transition">
+        <a href="tel:+919962268886" class="px-5 py-3 rounded-xl glass-panel text-white font-medium text-xs flex items-center gap-2 hover:bg-slate-800 transition">
           <i class="fa-solid fa-phone text-accentCyan"></i>
           <span>+91 99622 68886</span>
         </a>
-        <a href="https://linkedin.com/in/satheesh-thangathurai" target="_blank" class="px-5 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-medium flex items-center gap-2 hover:bg-white/10 transition">
+        <a href="https://linkedin.com/in/satheesh-thangathurai" target="_blank" class="px-5 py-3 rounded-xl glass-panel text-white font-medium text-xs flex items-center gap-2 hover:bg-slate-800 transition">
           <i class="fa-brands fa-linkedin text-accentCyan"></i>
           <span>LinkedIn</span>
         </a>
       </div>
 
       <div class="pt-8 border-t border-white/10 text-xs font-mono text-slate-500">
-        © 2026 Satheesh T. All rights reserved. Built with custom developer-grade UI architecture.
+        © 2026 Satheesh T. All rights reserved.
       </div>
     </footer>
 
